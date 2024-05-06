@@ -17,7 +17,7 @@ fi
 heading Enable and start mysql
 systemctl enable mysqld
 systemctl start mysqld
-echo exit status -$?
+stat $?
 
 heading Secure Installing mysql root password
 mysql_secure_installation --set-root-pass $1
