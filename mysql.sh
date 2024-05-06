@@ -15,8 +15,8 @@ if [ -$? -eq 0 ]; then
 fi
 
 heading Enable and start mysql
-systemctl enable mysqld
-systemctl start mysqld
+systemctl enable mysqld &>>/tmp/expense.log
+systemctl start mysqld &>>/tmp/expense.log
 STAT $?
 
 heading Secure Installing mysql root password
