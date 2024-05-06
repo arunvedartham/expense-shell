@@ -10,9 +10,8 @@ dnf install mysql-server -y
 if [ -$? -eq 0 ]; then
   echo SUCCESS
   else
-  [ -$? -eq 1 ]; then
+  [ -$? -eq 1 ];
   echo FAILURE
-  fi
 fi
 
 heading Enable and start mysql
