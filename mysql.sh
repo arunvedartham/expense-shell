@@ -7,7 +7,12 @@ fi
 
 heading Installing mysql
 dnf install mysql-server -y
-echo exit status -$?
+if [ -$? -eq 0 ]; then
+  echo SUCCESS
+else
+  [ -$? -eq 1 ]; then
+  echo FAILURE
+fi
 
 heading Enable and start mysql
 systemctl enable mysqld
