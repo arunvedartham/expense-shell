@@ -1,4 +1,10 @@
 source common.sh
+
+if [ -z "$1" ]; then
+  echo "Input MySQL Password is Missing"
+  exit 1
+fi
+
 heading Installing mysql
 dnf install mysql-server -y
 echo exit status -$?
