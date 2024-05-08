@@ -1,6 +1,11 @@
 source common.sh
 rm -f /tmp/expense.log
 
+if [ -z "$1" ]; then
+  echo "Input MySQL Password is Missing"
+  exit 1
+fi
+
 heading "Disable NodeJS default version"
 dnf module disable nodejs -y &>>/tmp/expense.log
 STAT $?
@@ -67,7 +72,7 @@ STAT $?
 # mysql -h 172.31.30.152 -uroot -pExpenseApp@1 < /app/schema/backend.sql
 
 heading "Load Schema"
-mysql -h 172.31.30.152 -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>/tmp/expense.log
+mysql -h 172.31.24.141 -uroot -p$1 < /app/schema/backend.sql &>>/tmp/expense.log
 STAT $?
 
 heading "Start Backend Service"
