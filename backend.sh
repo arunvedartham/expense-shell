@@ -72,7 +72,7 @@ STAT $?
 # mysql -h 172.31.30.152 -uroot -pExpenseApp@1 < /app/schema/backend.sql
 
 heading "Load Schema"
-mysql -h 172.31.30.152 -uroot -p$1 < /app/schema/backend.sql &>>/tmp/expense.log
+mysql -h 172.31.24.141 -uroot -p$1 < /app/schema/backend.sql &>>/tmp/expense.log
 STAT $?
 
 heading "Start Backend Service"
