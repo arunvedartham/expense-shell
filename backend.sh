@@ -1,6 +1,11 @@
 source common.sh
 rm -f /tmp/expense.log
 
+if [ -z "$1" ]; then
+  echo "Input MySQL Password is Missing"
+  exit 1
+fi
+
 heading "Disable NodeJS default version"
 dnf module disable nodejs -y &>>/tmp/expense.log
 STAT $?
